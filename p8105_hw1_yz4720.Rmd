@@ -1,6 +1,7 @@
 ---
 title: "p8105_hw1_yz4720"
-output: html_document
+output: github_document
+author: "Jasmine Zhang"
 date: "2023-09-21"
 ---
 
