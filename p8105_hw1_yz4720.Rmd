@@ -4,3 +4,22 @@ output: html_document
 date: "2023-09-21"
 ---
 
+# Set up
+```{r setup}
+library(tidyverse)
+library(moderndive)
+data("early_january_weather")
+```
+
+# Question 1
+```{r Question1}
+help(early_january_weather)
+```
+In the dataset "early_january_weather", the variables are origin, year, month, day, hour, temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib, and time_hour. The size of the dataset is `r nrow(early_january_weather)` rows by `r ncol(early_january_weather)` columns. The mean temperature is `r mean(early_january_weather$temp)`.
+```{r plot}
+scatterplot<- ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + 
+  geom_point()
+scatterplot
+ggsave(scatterplot, file="scatterplot_question1.pdf")
+```
+From the scatterplot, it can be noticed that temperature fluctuates during each day (increases during the day and decreases during the night). The overall temperature increases as days pass progress in January. In addition, it rained for the period around Jan 10th to 14th because the humidity increased a lot.
